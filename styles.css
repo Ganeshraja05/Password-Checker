@@ -1,55 +1,70 @@
-/* Apple-Like Minimal Design */
-body {
-    margin: 0;
-    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
-  }
+/* General Styles */
   
   .container {
     max-width: 800px;
     margin: 50px auto;
     background: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
   
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 10px;
     color: #1d1d1f;
   }
   
   header p {
     color: #6e6e73;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
+  /* Input Fields */
   input[type="password"],
   input[type="text"],
   input[type="number"] {
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 15px;
     margin: 10px 0;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1rem;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
   }
   
   button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 1rem;
     background: #007aff;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background 0.3s ease;
   }
   
   button:hover {
     background: #005bbb;
+  }
+  
+  .icon-button {
+    padding: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .icon-button:hover {
+    color: #007aff;
   }
   
   /* Radial Meter */
@@ -67,8 +82,9 @@ body {
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   /* Suggestions */
@@ -79,16 +95,90 @@ body {
   }
   
   ul li {
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-size: 1rem;
     color: #6e6e73;
   }
+  
+  /* Breach Check Button */
   .breach-check button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background: #00d4ff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #fff;
     cursor: pointer;
   }
-    
+  
+  .breach-check button:hover {
+    background: #00a0cc;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    header p {
+      font-size: 1rem;
+    }
+  
+    button, .icon-button {
+      font-size: 0.9rem;
+    }
+  }
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(120deg, #007aff, #00d4ff, #f4f4f4);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+    color: #333;
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Container Styles */
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+  }
+  .strength-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  
+  .strength-bar {
+    height: 100%;
+    width: 0%;
+    background: #d32f2f;
+    transition: width 0.3s ease;
+  }
+  

@@ -27,6 +27,10 @@
           <button onclick="togglePasswordVisibility()">👁</button>
         </div>
         <span id="strengthMessage" class="feedback-message">Start typing...</span>
+        <div class="strength-bar-container">
+          <div id="strengthBar" class="strength-bar"></div>
+        </div>
+        <p>Character Types Used: <span id="charTypesUsed">None</span></p>
       </section>
 
       <!-- Strength Feedback -->
@@ -49,6 +53,8 @@
           <li>Start typing your password to see suggestions.</li>
         </ul>
       </section>
+
+      <!-- Breach Check -->
       <div class="breach-check">
         <h2>Data Breach Check</h2>
         <button onclick="checkBreach()">Check if password is leaked</button>
@@ -61,6 +67,7 @@
         <input type="number" id="passwordLength" min="8" max="32" value="16" title="Password Length">
         <button onclick="generatePassword()">Generate</button>
         <input type="text" id="generatedPassword" readonly placeholder="Generated password">
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
       </section>
     </main>
   </div>

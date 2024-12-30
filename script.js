@@ -4,6 +4,7 @@ function analyzePassword() {
     const radialMeter = document.getElementById("radialMeter");
     const crackTime = document.getElementById("crackTime");
     const suggestionsList = document.getElementById("suggestionsList");
+    const strengthBar = document.getElementById("strengthBar");
   
     const charTypes = [
       /[a-z]/.test(password), 
@@ -25,8 +26,11 @@ function analyzePassword() {
     ];
     const scoreIndex = Math.min(Math.floor(entropy / 20), feedback.length - 1);
   
+    // Update UI elements
     strengthMessage.textContent = feedback[scoreIndex].text;
     radialMeter.style.background = feedback[scoreIndex].color;
+    strengthBar.style.width = `${(scoreIndex + 1) * 20}%`;
+    strengthBar.style.background = feedback[scoreIndex].color;
     document.getElementById("strengthScore").textContent = `${Math.round((scoreIndex + 1) * 20)}%`;
   
     // Time to crack
@@ -42,6 +46,16 @@ function analyzePassword() {
     if (length < 12) suggestions.push("Use at least 12 characters.");
     if (charDiversity < 3) suggestions.push("Add uppercase, numbers, or symbols.");
     suggestionsList.innerHTML = suggestions.map((s) => `<li>${s}</li>`).join("");
+  
+    // Character Diversity
+    const charTypesUsed = document.getElementById("charTypesUsed");
+    const charTypesText = [
+      charTypes[0] ? "Lowercase" : "",
+      charTypes[1] ? "Uppercase" : "",
+      charTypes[2] ? "Numbers" : "",
+      charTypes[3] ? "Symbols" : ""
+    ].filter(Boolean).join(", ");
+    charTypesUsed.textContent = charTypesText || "None";
   }
   
   function generatePassword() {
@@ -53,6 +67,7 @@ function analyzePassword() {
     }
     document.getElementById("generatedPassword").value = password;
   }
+  
   async function checkBreach() {
     const password = document.getElementById("password").value;
     const breachStatus = document.getElementById("breachStatus");
@@ -65,6 +80,7 @@ function analyzePassword() {
     const isBreached = data.includes(suffix);
     breachStatus.textContent = isBreached ? "Password found in data breaches!" : "No breaches found for this password.";
   }
+  
   function sha1(str) {
     return crypto.subtle.digest("SHA-1", new TextEncoder().encode(str))
       .then(hash => Array.from(new Uint8Array(hash))
@@ -74,5 +90,12 @@ function analyzePassword() {
   function togglePasswordVisibility() {
     const passwordInput = document.getElementById("password");
     passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+  }
+  
+  function copyToClipboard() {
+    const generatedPassword = document.getElementById("generatedPassword").value;
+    navigator.clipboard.writeText(generatedPassword).then(() => {
+      alert("Password copied to clipboard!");
+    });
   }
   
