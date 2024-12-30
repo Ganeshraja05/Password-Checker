@@ -1,0 +1,94 @@
+/* Apple-Like Minimal Design */
+body {
+    margin: 0;
+    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+  }
+  
+  header p {
+    color: #6e6e73;
+    font-size: 1.1rem;
+  }
+  
+  input[type="password"],
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #005bbb;
+  }
+  
+  /* Radial Meter */
+  .radial-meter {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #d32f2f 0%,
+      #fbc02d 50%,
+      #388e3c 100%
+    );
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Suggestions */
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  ul li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #6e6e73;
+  }
+  .breach-check button {
+    padding: 10px 20px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+    

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Pro Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Password Pro</h1>
+      <p>Advanced password strength analysis and secure password generation.</p>
+    </header>
+
+    <main>
+      <!-- Password Input -->
+      <section class="input-section">
+        <h2>Analyze Your Password</h2>
+        <div class="password-input-wrapper">
+          <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter your password" 
+            oninput="analyzePassword()"
+          >
+          <button onclick="togglePasswordVisibility()">👁</button>
+        </div>
+        <span id="strengthMessage" class="feedback-message">Start typing...</span>
+      </section>
+
+      <!-- Strength Feedback -->
+      <section class="feedback">
+        <div class="radial-meter" id="radialMeter">
+          <span id="strengthScore">0%</span>
+        </div>
+      </section>
+
+      <!-- Time to Crack -->
+      <section class="time-to-crack">
+        <h3>🕒 Time to Crack</h3>
+        <p id="crackTime">N/A</p>
+      </section>
+
+      <!-- Suggestions -->
+      <section class="password-tips">
+        <h3>💡 Suggestions</h3>
+        <ul id="suggestionsList">
+          <li>Start typing your password to see suggestions.</li>
+        </ul>
+      </section>
+      <div class="breach-check">
+        <h2>Data Breach Check</h2>
+        <button onclick="checkBreach()">Check if password is leaked</button>
+        <p id="breachStatus">Status: N/A</p>
+      </div>
+
+      <!-- Password Generator -->
+      <section class="password-generator">
+        <h2>🔑 Generate Secure Password</h2>
+        <input type="number" id="passwordLength" min="8" max="32" value="16" title="Password Length">
+        <button onclick="generatePassword()">Generate</button>
+        <input type="text" id="generatedPassword" readonly placeholder="Generated password">
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
